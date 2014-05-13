@@ -50,10 +50,6 @@ life_vehicle_config_new = [
 	["I_Heli_light_03_unarmed_F", 250, 200000, 80000, 15000, false, 0],
 	["I_Heli_light_03_F", 250, 1000000, 400000, 20000, false, 0],
 	
-	["GNT_C185F", 850, 1000000, 400000, 20000, false, 0],
-	["GNT_C185", 850, 1000000, 400000, 20000, false, 0],
-	["GNT_C185T", 850, 1000000, 400000, 20000, false, 0],
-	
 	["C_Rubberboat", 50, 5000, 2000, 2000, false, 0],
 	["C_Boat_Civil_01_F", 100, 20000, 2000, 5000, false, 0],
 	["C_Boat_Civil_01_police_F", 100, 20000, 5000, 5000, false, 0],

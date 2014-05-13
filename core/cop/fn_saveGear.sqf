@@ -162,4 +162,15 @@ _ret set[count _ret,_pItems];
 _ret set[count _ret,_hItems];
 _ret set[count _ret,_yItems];
 
+
+//Hard code for Laser Desigantor batteries
+_curWep = currentWeapon player;
+if("Laserdesignator" in assignedItems player) then
+{
+	player selectWeapon "Laserdesignator";
+	if(currentMagazine player != "") then {_magazines set[count _magazines,(currentMagazine player)];};
+};
+
+player selectWeapon _curWep;
+
 cop_gear = _ret;

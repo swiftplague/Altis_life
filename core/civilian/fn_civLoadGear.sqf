@@ -7,26 +7,28 @@
 */
 private["_itemArray","_uniform","_vest","_backpack","_goggles","_headgear","_items","_prim","_seco","_uItems","_bItems","_vItems","_pItems","_hItems","_yItems","_uMags","_bMags","_vMags","_handle","_cfg","_load"];
 _itemArray = civ_gear;
-waitUntil {!(isNull (findDisplay 46))};
-if(count _itemArray == 0) exitWith
+ waitUntil {!(isNull (findDisplay 46))};
+if(count _loadout == 0) exitWith
 {
     if(headGear player != "") then {removeHeadgear player;};
     if(goggles player != "") then {removeGoggles player;};
 };
  
 //Strip the unit down
-RemoveAllWeapons player;
-{player removeMagazine _x;} foreach (magazines player);
-removeUniform player;
-removeVest player;
-removeBackpack player;
-removeGoggles player;
-removeHeadGear player;
-{
-    player unassignItem _x;
-    player removeItem _x;
-} foreach (assignedItems player);
- 
+	RemoveAllWeapons player;
+	{player removeMagazine _x;} foreach (magazines player);
+	removeallweapons player;
+	removeallassigneditems player;
+	Removeuniform player;
+	removeVest player;
+	removeBackpack player;
+	removeGoggles player;
+	removeHeadGear player;
+	{
+	player unassignItem _x;
+	player removeItem _x;
+	} foreach (assignedItems player);
+	
 _uniform = [_itemArray,0,"",[""]] call BIS_fnc_param;
 _vest = [_itemArray,1,"",[""]] call BIS_fnc_param;
 _backpack = [_itemArray,2,"",[""]] call BIS_fnc_param;
@@ -78,3 +80,5 @@ if(_backpack != "") then {
     _item = [_x,1] call life_fnc_varHandle;
     [true,_item,1] call life_fnc_handleInv;
 } foreach (_yItems);
+
+[] call life_fnc_sessionHandle;

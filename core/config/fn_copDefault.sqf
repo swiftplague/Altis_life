@@ -6,17 +6,21 @@
 	Default cop configuration.
 */
 //Strip the player down
-RemoveAllWeapons player;
-{player removeMagazine _x;} foreach (magazines player);
-removeUniform player;
-removeVest player;
-removeBackpack player;
-removeGoggles player;
-removeHeadGear player;
-{
+systemChat "Loading cop default gear.";
+
+	RemoveAllWeapons player;
+	{player removeMagazine _x;} foreach (magazines player);
+	removeallweapons player;
+	removeallassigneditems player;
+	Removeuniform player;
+	removeVest player;
+	removeBackpack player;
+	removeGoggles player;
+	removeHeadGear player;
+	{
 	player unassignItem _x;
 	player removeItem _x;
-} foreach (assignedItems player);
+	} foreach (assignedItems player);
 
 
 //Load player with default cop gear.
@@ -34,4 +38,6 @@ player assignItem "ItemMap";
 player addItem "ItemCompass";
 player assignItem "ItemCompass";
 
-[] call life_fnc_saveGear;
+hintC "default gear opened";
+
+[] call life_fnc_sessionHandle; //save gear into file

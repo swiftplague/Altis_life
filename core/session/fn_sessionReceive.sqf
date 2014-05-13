@@ -58,9 +58,9 @@ switch (playerSide) do
 		__CONST__(life_donator,parseNumber(_session select 9));
 		
 		//Initialize inventory stuff ##43
-		life_inventory = (_session select 10);
+		life__inventory = (_session select 10);
 		
-		life_inventory = call compile format["%1", life_inventory];
+		life__inventory = call compile format["%1", life__inventory];
 		
 		_isbanned = (_session select 11);
 		
@@ -103,7 +103,7 @@ switch (playerSide) do
 		__CONST__(life_donator,parseNumber(_session select 7));
 		civ_gear = (_session select 8);
 		
-		//systemChat format ["SESSION CIV-GEAR: %1", str (_session select 8)];
+		systemChat format ["SESSION CIV-GEAR: %1", str (_session select 8)];
 		
 		[] spawn life_fnc_civLoadGear;
 		__CONST__(life_coplevel,0);

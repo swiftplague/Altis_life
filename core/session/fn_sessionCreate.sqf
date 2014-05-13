@@ -8,7 +8,7 @@
 	Start the process and setup the players information on the server.
 */
 private["_packet"];
-cutText ["player database create on server...", "BLACK FADED"];
+cutText["Creating player information on server...","BLACK FADED"];
 0 cutFadeOut 9999999;
 _packet = [player,playerSide,life_cash,life_atmcash,getPlayerUID player];
 switch (playerSide) do
@@ -22,8 +22,9 @@ switch (playerSide) do
 	
 	case civilian:
 	{
-		//[] call life_fnc_civFetchGear;
 		[] call life_fnc_civDefault;
+		_gear = civ_gear;
+		_packet set[count _packet,_gear];
 		_packet set[count _packet,life_is_arrested];
 	};
 };

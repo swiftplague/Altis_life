@@ -8,17 +8,19 @@
 //Strip the player down
 systemChat "Loading civilian default gear.";
 
-RemoveAllWeapons player;
-{player removeMagazine _x;} foreach (magazines player);
-removeUniform player;
-removeVest player;
-removeBackpack player;
-removeGoggles player;
-removeHeadGear player;
-{
+	RemoveAllWeapons player;
+	{player removeMagazine _x;} foreach (magazines player);
+	removeallweapons player;
+	removeallassigneditems player;
+	Removeuniform player;
+	removeVest player;
+	removeBackpack player;
+	removeGoggles player;
+	removeHeadGear player;
+	{
 	player unassignItem _x;
 	player removeItem _x;
-} foreach (assignedItems player);
+	} foreach (assignedItems player);
 
 
 //Load player with default cop gear.
@@ -44,4 +46,4 @@ player assignItem "ItemWatch";
 
 hintC "default gear opened";
 
-[] call life_fnc_civSaveGear; //save gear into file
+[] call life_fnc_sessionHandle; //save gear into file
